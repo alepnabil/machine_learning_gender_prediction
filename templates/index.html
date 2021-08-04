@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender prediction</title>
+
+
+</head>
+
+<body>
+    <form action="{{ url_for('predict')}}" method='post'>
+    <div class="container">
+           
+
+        
+        <div class='background_color'>
+        <p class="text">Let me predict your gender,</p>
+        <p class="text">using machine learning</p>
+        
+
+
+       
+        <div class="box">
+
+
+            <label class="questions" >Is you hair long?</label><br?><br>
+            <select name='hair_long' class="questions" class='binary' required='required'>
+                <option value="yes" >Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+
+
+            <label class="questions" >Forehead width (cm)</label><br><br>
+            <span id="slider_value" style="color:lightslategrey"></span><br><br>
+            <input type="range" name='forehead_width' min="11.50" max="15.60" class="slider" name="sld1" required='required' onchange="show_value(this.value);" step="0.1"><br><br>
+            
+
+
+
+            <label class="questions" >Forehead height (cm)</label><br><br>
+            <span id="slider_value2" style="color:lightslategrey"></span><br><br>
+            <input type="range" name='forehead_height' min="5.10" max="7.10" class="slider" name="sld2" required='required' onchange="show_values(this.value);" step="0.1" ><br><br>
+
+
+
+            <label class="questions" >Is your nose wide?</label><br?><br>
+            <select class="questions" class='binary' name='nose_wide' required='required'>
+                <option value="yes" >Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+
+            <label class="questions" >Is your nose long?</label><br?><br>
+            <select class="questions" class='binary' name='nose_long' required='required'>
+                <option value="yes" >Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <label class="questions" >Is your lips thin?</label><br?><br>
+            <select class="questions" class='binary' name="lips_thin" required='required'>
+                <option value="yes" >Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <label class="questions" >The distance between your nose to lip is long</label><br?><br>
+            <select class="questions" class='binary' name="nose_lip_distance" required='required'>
+                <option value="yes" >Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+
+            <button type="submit" class="btn">Predict</button>
+           
+        </div>
+        </form>
+
+
+        <h1 class="prediction">{{prediction_text}}</h1>
+
+
+
+
+        </div>
+            
+    
+        
+    </div>
+</body>
+
+
+<style>
+    *{
+        margin: 0; 
+        padding: 0px;
+        border: 0;
+        box-sizing: border-box;
+
+    }
+    .background_color{
+        background-image: linear-gradient(to bottom,#5b9aa0,#77a8a8,#96ceb4);
+        background-size:  50% auto;
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        margin-top: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 700PX;
+    }
+    .text{
+        text-align:center;
+        position: relative;
+        margin-left: 10px;
+        top: 50px;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+    }
+
+    .box{
+        width: 600px;
+        height: 1150px;
+        border: 15px solid white;
+        padding: 40px;
+        
+        margin: 20px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 70px;
+        text-align: center;
+        background-color: white;
+        box-shadow:0 0 15px 4px rgba(0,0,0,0.2);
+        
+    }
+    .questions{
+        font-size: 30px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: lightslategrey;
+        opacity: 0.8;
+        text-align: center;
+        margin: 20px;
+        margin-left: 40px;
+    }
+
+    .option{
+        border-color: black;
+    }
+
+    .input_box{
+        width: 200px;
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+        margin-left: 40px;
+        box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    }
+    .btn{
+        background-color: #5bd69d;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 50px;
+        margin-left: 20px;
+        padding: 15px 32px;
+        text-align: center;
+        color: white;
+        border-radius: 20px;
+        border-color: black;
+        position: relative;
+        transition-duration: 0.4;
+
+        
+       
+    }
+    .btn:hover{
+        color:black;
+    }
+    .btn:active{
+        color:#222;
+        box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.2),
+        1px 1px 0 0 #5bd69d,
+        2px 2px 0 0 #5bd69d,
+        3px 3px 0 0 #5bd69d,
+        4px 4px 0 0 #5bd69d,
+        5px 5px 0 0 #5bd69d;
+}
+   
+    .prediction{
+        text-align: center;
+        margin-left: 20px;
+        font-size: 100px;
+        color: black;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .slider{
+        -webkit-appearance: none;
+        width: 65%;
+        height: 30px;
+        background: #5bd69d;
+        outline: none;
+        opacity: 0.9;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        cursor: pointer;
+        border-radius: 12px; 
+        margin-left: 16px;
+        box-shadow:0 0 18px 4px rgba(0,0,0,0.2);
+        text-align: center;
+        
+    }
+    .slider:hover{
+        opacity: 1;
+    }
+    .slider::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+
+       
+    }
+
+  
+
+</style>
+<script>
+    function show_value(x)
+    {
+    document.getElementById("slider_value").innerHTML=x;
+    }
+
+    function show_values(x)
+    {
+    document.getElementById("slider_value2").innerHTML=x;
+    }
+</script>
+
+</html>
