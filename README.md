@@ -18,7 +18,7 @@ https://genderpredictionbyaliff.herokuapp.com/
 
 **Language:** Python,Html,Css,Javascript
 
-**Libraries:** Numpy,Seaborn,Matplotlib,Sckit learn,Joblib
+**Libraries:** Pandas,Numpy,Seaborn,Matplotlib,Sckit learn,Joblib
 
 **Web framework:** Flask
 
