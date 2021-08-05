@@ -28,8 +28,8 @@ https://genderpredictionbyaliff.herokuapp.com/
   
 ## Lessons Learned
 
-- Planned to use 2 different data set but second data set modelling did not perform consistently
-- Focused more on hyperparamter tuning to increase model's accuracy
+- Planned to use 2 different data set but second data set modelling did not perform consistently.
+- Focused more on hyperparamter tuning to increase model's accuracy.
 - Spent an ample amount of time designing UI using Html,Css and a bit of Javascript.
 
   
