@@ -6,6 +6,10 @@ Embarked on a machine learning project to build a gender prediction model using 
 ## Demo
 https://genderpredictionbyaliff.herokuapp.com/
 
+<img width="680" alt="Screenshot 2021-08-05 121700" src="https://user-images.githubusercontent.com/65908522/128291254-68435645-44dd-47d9-9e95-7db84e7904c4.png">
+
+
+
 
 
   
